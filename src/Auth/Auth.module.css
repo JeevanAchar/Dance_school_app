@@ -1,21 +1,21 @@
 /* login page */
 
-section{
+#blockOne{
     display: flex;
     justify-content: center;
     margin-top: 50px;
 }
-section> article{
+#blockOneArticle{
     display: flex;
     justify-content: center;
     border: 2px solid black;
-    height: 40vh;
-    width: 40vw;
+    height: 50vh;
+    width: 30vw;
     border-radius: 20px;
     /* background-color: red; */
     box-shadow: 4px 4px grey;
 }
-section>article>form>h3{
+#blockOneForm h3{
     display: flex;
     justify-content: center;
     height: 5vh;
@@ -25,21 +25,21 @@ section>article>form>h3{
     font-family: 'Courier New', Courier, monospace;
     font-size: 3vh;
 }
-section>article>form>div{
+#blockOneForm div{
     display: flex;
     justify-content: center;
     width: 100%;
     margin: 2vh;
     height: 3.5vh;
 }
-section>article>form>div>input{
+#blockOneForm div input{
    /* border: none; */
    border-radius: 5px;
    outline: none;
    width: 50%;
 }
 /* login page sign up button */
-section>article>form>div>button{
+#blockOneButton{
     height: 4vh;
     width: 100%;
     border-radius: 5px;
@@ -47,4 +47,12 @@ section>article>form>div>button{
     color: #eee;
     text-transform: uppercase;
     background-color: rgb(74, 74, 235);
+}
+
+
+/* block two register page */
+
+#blockTwo{
+    display: flex;
+    justify-content: center;
 }

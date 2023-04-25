@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axiosInstance from '../helper/Axios';
 import { useNavigate } from 'react-router-dom';
+import STYLE from './Auth.module.css'
 
 const Register = () => {
     const [state, setState] = useState({
@@ -42,7 +43,7 @@ const Register = () => {
 
     return (
         <>
-            <section>
+            <section id={STYLE.blockTwo}>
                 <article>
                     <form action="">
                         <div>

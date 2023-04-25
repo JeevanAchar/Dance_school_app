@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import STYLE from './Login.module.css'
+import STYLE from './Auth.module.css'
 import axiosInstance from '../helper/Axios'
 import { useNavigate } from 'react-router-dom'
 
@@ -25,9 +25,12 @@ const Login = () => {
         try{
             const payload = {userEmail, password}
             const axiosReturn = axiosInstance.post('/authenticate', payload)
-            console.log(axiosReturn)
-            console.log("authenthhicated")
-            navigate('/homePage')
+            let  jsonData = async ()=>{
+                let {data} = await axiosReturn.then(res=> res)
+                let  {role, token ,  userId} = data
+                console.log(role, token, userId)
+            }
+            jsonData()
         }catch{
             console.log("unable to connect to the server")
         }
@@ -36,7 +39,7 @@ const Login = () => {
         <>
             <section id={STYLE.blockOne}>
                 <article id={STYLE.blockOneArticle}>
-                    <form action="">
+                    <form action="" id={STYLE.blockOneForm}>
                         <h3>Log in</h3>
                         <div>
                             <label htmlFor="userEmail">email:</label>
@@ -51,7 +54,7 @@ const Login = () => {
                             <label htmlFor="remember_me"> Remember me</label>
                         </section>
                         <div onClick={handleSubmit}>
-                            <button>Sign In</button>
+                            <button id={STYLE.blockOneButton}>Sign In</button>
                         </div>
                         <div>
                             <Link to="/userRegister"> <span>Forgot password?</span><span>Don't have an account?</span><span>Sign Up</span></Link>

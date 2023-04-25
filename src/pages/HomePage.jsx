@@ -1,8 +1,11 @@
 import React from 'react'
+import STYLE from './pages.module.css'
+
 
 const HomePage = () => {
   return (
-    <section>
+    <section id={STYLE.HomePageBlock}>
+      <article>
         <nav>
             <ul>
                 <li>Home</li>
@@ -12,6 +15,7 @@ const HomePage = () => {
                 <li>logout</li>
             </ul>
         </nav>
+      </article>
     </section>
   )
 }
