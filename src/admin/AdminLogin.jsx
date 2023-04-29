@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import STYLE from './Auth.module.css'
+import STYLE from './admin.module.css'
 import axiosInstance from '../helper/Axios'
 import { useNavigate } from 'react-router-dom'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify'
+// import 'react-toastify/dist/ReactToastify.css';
 
-const Login = () => {
+const AdminLogin = () => {
 
     const [state, setState] = useState({
         userEmail: "",
@@ -23,17 +23,23 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // console.log({ userEmail, password })
+        console.log({ userEmail, password })
         try {
             const payload = { userEmail, password }
             const {data} = await axiosInstance.post('/authenticate', payload)
-            let { role, token, userId } = data
-
-            if(token){
-                toast.success(`successfully ${userEmail} logged in`,{position: toast.POSITION.TOP_RIGHT})
-            }
-        
+            // toast.success(`successfully ${userEmail} logged in`,{
+            //             position: toast.POSITION.TOP_RIGHT})
+            // if(data){
+            //     toast.success(`successfully ${userEmail} logged in`,{
+            //         position: toast.POSITION.TOP_RIGHT
+            //     })
+            // } else{
+            //     toast.error("bad request",{
+            //         position: toast.POSITION.TOP_RIGHT
+            //     })
+            // }
             let jsonData = async () => {
+                let { role, token, userId } = data
                 console.log(role, token, userId)
                 if (token) {
                     window.localStorage.setItem("userId", userId)
@@ -44,7 +50,7 @@ const Login = () => {
                     window.localStorage.removeItem("role", role)
                     window.localStorage.removeItem("token", token)
                 }
-                navigate("/")
+                navigate("/homePage")
                 return { role, token, userId }
             }
             jsonData()
@@ -55,10 +61,10 @@ const Login = () => {
     return (
         <>
             <section id={STYLE.blockOne}>
-                <ToastContainer/>
+                {/* <ToastContainer/> */}
                 <article id={STYLE.blockOneArticle}>
                     <form action="">
-                        <h4>Login</h4>
+                        <h4>Admin Login</h4>
                         <div id={STYLE.blockOneDivOne}>
                             <input type="text" name='userEmail' placeholder=' Email address' value={userEmail} onChange={handleChange} />
                             <input type="password" name='password' placeholder=' Password' value={password} onChange={handleChange} />
@@ -78,6 +84,7 @@ const Login = () => {
                         <div id={STYLE.blockOneDivFour}>
                             <p>Not a member?</p>
                             <Link to="userRegister">Register</Link>
+                            {/* <p>or sign up with:</p> */}
                         </div>
                     </form>
                 </article>
@@ -85,4 +92,4 @@ const Login = () => {
         </>
     )
 }
-export default Login
+export default AdminLogin

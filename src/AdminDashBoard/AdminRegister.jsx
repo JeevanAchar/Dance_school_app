@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import axiosInstance from '../helper/Axios';
 import { useNavigate, Link } from 'react-router-dom';
 import img from '../assets/free-registration-forms.jpg'
-import STYLE from './Auth.module.css'
+import STYLE from './admin.module.css'
 
 
-const Register = () => {
+const AdminRegister = () => {
     const [state, setState] = useState({
         userName: "",
         password: "",
@@ -15,7 +15,7 @@ const Register = () => {
         gender: "",
         phone: ""
     })
-    let { userName, password, dob, email, gender, phone, confirmPassword } = state;
+    let { userName, password, dob, email, gender, phone , confirmPassword} = state;
     let navigate = useNavigate()
 
     const handleChange = (e) => {
@@ -27,17 +27,13 @@ const Register = () => {
         e.preventDefault()
         try {
             let payload = { userName, password, dob, email, gender, phone }
-            let axiosResult = await axiosInstance.post('/users/save', payload)
+            let axiosResult = await axiosInstance.post('/admins/save', payload)
             console.log(axiosResult)
             console.log("data successfully sent")
             navigate("/")
         } catch {
 
         }
-        //  finally {
-        //     console.log("just finally thing that's it ")
-        // }
-
         console.log({ userName, password, dob, email, gender, phone })
     }
 
@@ -55,7 +51,7 @@ const Register = () => {
                 </section>
                 <section id={STYLE.blockTwoSectionTwo} >
                     <article>
-                        <h3>Registration</h3>
+                        <h3>Admin Registration</h3>
                         <form action="">
                             <section id={STYLE.blockTwoSectionThree}>
                                 <div id={STYLE.blockTwoDivOne}>
@@ -93,7 +89,6 @@ const Register = () => {
                                     </span>
                                 </div>
                                 <div id={STYLE.blockTwoDivSeven}>
-                                    {/* <label htmlFor="dob">DOB</label> */}
                                     <p>DOB</p>
                                     <input type="date" name='dob' id='dob' value={dob} onChange={handleChange} />
                                 </div>
@@ -117,4 +112,4 @@ const Register = () => {
         </>
     )
 }
-export default Register;
+export default AdminRegister;

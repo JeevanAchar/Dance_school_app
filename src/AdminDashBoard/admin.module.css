@@ -4,90 +4,7 @@
     --heading:rgb(95, 85, 85);
 }
 
-/* login page */
-#blockOne{
-    display: flex; 
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-    height: 40vh;
-    margin: 20px;
-    margin-top: 40px;
-}
-#blockOne h4{
-    text-decoration: underline #e47a17;
-    font-size: 3vh;
-    font-style: italic;
-    font-weight: 400;
-    content: '\e8b9';
-}
-#blockOneArticle{
-    position: static;
-    border: 2px solid black;
-    border-radius: 10px;
-    width: 27vw;
-    padding: 10px;
-    box-shadow: 5px 10px rgb(139, 128, 128);
-}
-#blockOneDivOne{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-#blockOneDivOne input{
-    width: 80%;
-    margin: 5px;
-    height: 3.8vh;
-    outline: none;
-    border-radius: 5px;
-    border: 2px solid var(--button);
-}
-#blockOneDivTwo{
-    display: flex;
-    justify-content: space-evenly;
-    margin: 10px;
-}
-#blockOneDivTwo div,input,label{
-    cursor: pointer;
-}
-
-@media only screen and (max-width:1200px) {
-    #blockOneDivTwo{
-        font-size: 13px;
-    }
-    #blockOneDivThree button{
-        font-size: 14px;
-    }
-    #blockOneDivFour{
-        font-size: 14px;        
-    }
-}
-@media only screen and (max-width:850px) {
-    #blockOneDivTwo{
-        font-size: 10px;
-    }
-    #blockOneDivThree button{
-        font-size: 10px;
-    }
-    #blockOneDivFour{
-        font-size: 10px;        
-    }
-}
-#blockOneDivThree button{
-    height: 4vh;
-    width: 70%;
-    /* width: 100%; */
-    border-radius: 5px;
-    border: none;
-    color: var(--fontColor);
-    background-color: var(--button) ;
-    cursor:pointer;
-}
-
-
-/* register page css */
+/* admin register css */
 
 #blockTwo{
     display: flex;
@@ -229,4 +146,50 @@
     border-radius: 5px;
     border: none;
     cursor:pointer;
+}
+
+
+/* admin dashboard */
+
+#AdminDashboardBlock{
+    display: flex;
+    height: 100vh;
+    /* padding: 10px 0px ; */
+    width: 100vw;
+}
+
+
+/* AdminSideBarBlock */
+#AdminSideBarBlock{
+    cursor: pointer;
+    border-right: 2px solid black;
+    width: 18%;
+}
+#AdminSideBarBlock h2{
+    font-weight: 400;
+    font-size: 3.2vh;
+    text-decoration: underline blue;
+    font-style: italic;
+    padding: 10px 30px;
+    /* padding-left: 30px; */
+    /* padding-right: 0; */
+}
+#AdminSideBarBlockUl li{
+    border-bottom: 2px solid black;
+}
+#AdminSideBarBlockUl li{
+    font-size: 2.5vh;
+    border-radius: 2px;
+    padding: 10px;
+    padding-left: 10px;
+    list-style: none;
+    color: grey;
+}
+#AdminSideBarBlockUl li:hover{
+    text-decoration: underline red;
+    /* transition: 1s; */
+}
+#AdminSideBarBlockUl li a{
+    text-decoration: none;
+    color: grey;
 }
