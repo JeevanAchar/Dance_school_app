@@ -3,6 +3,10 @@ import axiosInstance from '../helper/Axios';
 import { useNavigate, Link } from 'react-router-dom';
 import img from '../assets/free-registration-forms.jpg'
 import STYLE from './Auth.module.css'
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const Register = () => {
@@ -15,6 +19,9 @@ const Register = () => {
         gender: "",
         phone: ""
     })
+    const [pwd, setPwd] = useState(true);
+    const [icon, setIcon] = useState(true);
+    const [iconConfirm, setIconConfimr] = useState(<VisibilityIcon/>)
     let { userName, password, dob, email, gender, phone, confirmPassword } = state;
     let navigate = useNavigate()
 
@@ -32,13 +39,22 @@ const Register = () => {
             console.log("data successfully sent")
             navigate("/")
         } catch {
-
+            console.log("unable to connect to the server");
         }
-        //  finally {
-        //     console.log("just finally thing that's it ")
-        // }
-
         console.log({ userName, password, dob, email, gender, phone })
+    }
+    
+    const showpassword = () => {
+        if (pwd === true) {
+            setPwd(false);
+            setIcon(false);
+            setIconConfimr(false)
+        }
+        else {
+            setPwd(true)
+            setIcon(true);
+            setIconConfimr(true)
+        }
     }
 
     const handleCancle = () => {
@@ -50,7 +66,7 @@ const Register = () => {
             <section id={STYLE.blockTwo}>
                 <section id={STYLE.blockTwoSectionOne}>
                     <article>
-                        <img src={img} alt='' height="600px" style={{ borderRadius: "5px" }} />
+                        <img src={img} alt='' height="520px" width="400px" style={{ borderRadius: "5px", opacity: 0.9 }} />
                     </article>
                 </section>
                 <section id={STYLE.blockTwoSectionTwo} >
@@ -73,10 +89,12 @@ const Register = () => {
                                 <div id={STYLE.blockTwoDivFour}>
                                     <label htmlFor="password">Password:</label>
                                     <input type="password" name='password' id='password' placeholder=' password ' value={password} onChange={handleChange} />
+                                    {/* <span onClick={showpassword}>{icon ? <VisibilityIcon style={{ color : "#1E66DA"}} /> : <VisibilityOffIcon style={{ color : "#1E66DA"}} />}</span> */}
                                 </div>
                                 <div id={STYLE.blockTwoDivFive}>
                                     <label htmlFor="confirmPassword">Comfirm Password:</label>
                                     <input type="password" name='confirmPassword' id="confirmPassword" placeholder=' password' value={confirmPassword} onChange={handleChange} />
+                                    {/* <span onClick={showpassword}>{iconConfirm ? <VisibilityIcon style={{ color : "#1E66DA"}} /> : <VisibilityOffIcon style={{ color : "#1E66DA"}} />}</span> */}
                                 </div>
                                 <div id={STYLE.blockTwoDivSix}>
                                     <span>
