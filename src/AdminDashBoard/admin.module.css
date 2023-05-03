@@ -193,3 +193,81 @@
     text-decoration: none;
     color: grey;
 }
+
+
+/* view acacdemy manager block */
+#viewAcademicManagerBlock{
+    width: 83vw;
+}
+#ViewAcademicManagerNumber{
+    width: inherit;
+    height: 7vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-size: 4vh;
+    padding-top: 5px;
+    font-weight: 500;
+    font-style:oblique;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-bottom: 2px solid red;
+}
+#ViewAcademicManagerNumber span{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    width: 2vw;
+    background-color: red;
+    border-radius: 10px;
+    color: #fff;
+}
+
+#ViewAcademicManagerArticle{
+    display: flex;
+    flex-wrap: wrap;
+    /* margin: 10px; */
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    /* flex-direction: column; */
+}
+#ViewAcademicManagerArticle nav{
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 8px;
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    position: relative;
+    left: 20px;
+    color: #d2c8c8;
+}
+#viewAcademicManagerBlock ul {
+    margin: 5px;
+    list-style: none;
+}
+#viewAcademicManagerBlock ul li{
+    padding: 5px;
+}
+#ViewAcademicManagerArticle h3{
+    font-style: italic;
+    font-weight: 400;
+    font-size: 2.9vh;
+    color: var(--fontColor);
+}
+#ViewAcademicManagerArticle button{
+    height: 24px;
+    width: 150px;
+    background-color: red;
+    margin: 5px;
+    border-radius: 4px;
+    border: none;
+    font-size: 2.3vh;
+}
+#ViewAcademicManagerArticle button a{
+    color: #ffffff;
+}
+#ViewAcademicManagerArticle button:hover{
+    background-color: #daa51e;
+    width: 140px;
+}

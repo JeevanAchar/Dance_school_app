@@ -10,6 +10,11 @@ import AdminDashboard from './AdminDashBoard/AdminDashboard';
 import AcademyManagerRegister from './AcademyManager/AcademyManagerRegister';
 import ViewAcademicManager from './AdminDashBoard/ViewAcademicManager';
 import PrivateRoute from './routes/PrivateRoute';
+import AdminRoute from './routes/AdminRoute';
+import ManagerDetails from './AcademyManager/ManagerDetails';
+import EditAcademicManager from './AcademyManager/EditAcademicManager';
+import ViewAcademyDashBoard from './Academy/ViewAcademyDashBoard';
+import BranchDashBoard from './Branch/BranchDashBoard';
 
 const App = () => {
     return (
@@ -25,8 +30,17 @@ const App = () => {
                     
                     {/* admin dash board */}
                     <Route path='/adminDashBoard' element={<AdminDashboard />}>
-                        <Route path='academyManagerRegister' element={<AcademyManagerRegister />} />
-                        <Route path='vewiAcademyManager' element={<ViewAcademicManager />} />
+                        {/* academy manager */}
+                        <Route path='academyManagerRegister' element={<AdminRoute><AcademyManagerRegister /></AdminRoute>} />
+                        <Route path='viewAcademyManager' element={<AdminRoute><ViewAcademicManager /></AdminRoute>} />
+                        <Route path='managerDetails/:id' element={<AdminRoute><ManagerDetails/></AdminRoute>} />
+                        <Route path='editAcademyManager/:id' element={<AdminRoute><EditAcademicManager/></AdminRoute>} />
+                        {/* view academy */}
+                        <Route path='viewAcacdemyDashBoard' element={<AdminRoute><ViewAcademyDashBoard/></AdminRoute>} />
+                        {/* view branch */}
+                        <Route path='viewBranchDashBoard' element={<AdminRoute><BranchDashBoard/></AdminRoute>} />
+                        {/* view course */}
+                        <Route path='' />
                     </Route>
                 </Routes>
             </Router>

@@ -3,9 +3,10 @@ import axiosInstance from '../helper/Axios';
 import { useNavigate, Link } from 'react-router-dom';
 import img from '../assets/free-registration-forms.jpg'
 import STYLE from './Auth.module.css'
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+// import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 
 
@@ -37,9 +38,10 @@ const Register = () => {
             let axiosResult = await axiosInstance.post('/users/save', payload)
             console.log(axiosResult)
             console.log("data successfully sent")
-            navigate("/")
-        } catch {
-            console.log("unable to connect to the server");
+            toast.success(`${email} registered successfully`)
+            navigate("/login")
+        } catch (error) {
+            toast.error(error.code)
         }
         console.log({ userName, password, dob, email, gender, phone })
     }

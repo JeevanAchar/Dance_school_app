@@ -33,7 +33,7 @@ const handleSubmit = async (e) => {
         let axiosResult = await axiosInstance.post('/academymanagers/save', payload, {headers:{Authorization:`Bearer ${token} `}})  
         console.log(axiosResult)
         console.log("data successfully sent")
-        navigate("/")
+       navigate("/adminDashBoard/viewAcademyManager")
     } catch {
 
     }

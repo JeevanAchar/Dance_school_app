@@ -1,0 +1,44 @@
+/* Manager details block */
+
+#managerDetailsBlock{
+    width: 85vw;
+    /* background-color: red; */
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: #faf6f6;
+}
+#managerDetailsBlockArticle{
+    position: relative;
+    width: 20vw;
+    height: 80vh;
+    justify-content: center;
+    top: 20px;
+    border: 2px solid black
+}
+#managerDetailsBlockDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#managerDetailsBlockDiv p{
+    padding: 10px;
+}
+#managerDetailsBlockDiv2{
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+#managerDetailsBlockDiv2 button{
+    width: 83px;
+    height: 23px;
+    background-color: rgb(255, 0, 0);
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+}
+#managerDetailsBlockDiv2 button:hover{
+    background-color: rgb(255, 176, 4);
+}

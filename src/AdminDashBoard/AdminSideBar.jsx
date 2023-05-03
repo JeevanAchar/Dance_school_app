@@ -11,9 +11,9 @@ const AdminSideBar = () => {
                         <nav id={STYLE.AdminSideBarBlockNav}>
                             <ul id={STYLE.AdminSideBarBlockUl}>
                                 <li><Link to="/adminDashBoard/academyManagerRegister">Add Academy Manager</Link></li>
-                                <li><Link to="/adminDashBoard/vewiAcademyManager">View Academy Manager</Link></li>
-                                <li>View Academy</li>
-                                <li>View Branch</li>
+                                <li><Link to="/adminDashBoard/viewAcademyManager">View Academy Manager</Link></li>
+                                <li><Link to="/adminDashBoard/viewAcacdemyDashBoard"> View Academy</Link></li>
+                                <li><Link to="/adminDashBoard/viewBranchDashBoard">View Branch</Link></li>
                                 <li>View Course</li>
                                 <li><Link to="/">Home</Link></li>
                             </ul>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import STYLE from './Auth.module.css'
 import axiosInstance from '../helper/Axios'
 import { useNavigate } from 'react-router-dom'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer,toast } from 'react-toastify';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import 'react-toastify/dist/ReactToastify.css';
@@ -42,28 +42,39 @@ const Login = () => {
         try {
             const payload = { userEmail, password }
             const { data } = await axiosInstance.post('/authenticate', payload)
-            let { role, token, userId } = data
+            const { role, token, userId } = data
+            if(token){
 
-            if (token) {
-                toast.success(`successfully ${userEmail} logged in`, { position: toast.POSITION.TOP_RIGHT })
-            }
+                window.localStorage.setItem("userId", userId)
+                window.localStorage.setItem("role", role)
+                window.localStorage.setItem("token", token)
+                navigate('/')
+                toast.success(`${userEmail} logged successfully`)
 
-            let jsonData = async () => {
-                console.log(role, token, userId)
-                if (token) {
-                    window.localStorage.setItem("userId", userId)
-                    window.localStorage.setItem("role", role)
-                    window.localStorage.setItem("token", token)
-                } else {
-                    window.localStorage.removeItem("userId", userId)
-                    window.localStorage.removeItem("role", role)
-                    window.localStorage.removeItem("token", token)
-                }
-                navigate("/")
-                return { role, token, userId }
+            }else{
+                window.localStorage.clear()
             }
-            jsonData()
-        } catch {
+            // if (token) {
+            //     toast.success(`successfully ${userEmail} logged in`, { position: toast.POSITION.TOP_RIGHT })
+            // }
+
+            // let jsonData = async () => {
+            //     console.log(role, token, userId)
+            //     if (token) {
+            //         window.localStorage.setItem("userId", userId)
+            //         window.localStorage.setItem("role", role)
+            //         window.localStorage.setItem("token", token)
+            //     } else {
+            //         window.localStorage.removeItem("userId", userId)
+            //         window.localStorage.removeItem("role", role)
+            //         window.localStorage.removeItem("token", token)
+            //     }
+            //     navigate("/")
+            //     return { role, token, userId }
+            // }
+            // jsonData()
+        } catch(error) {
+            toast.error(error.code, { position: toast.POSITION.TOP_RIGHT })
             console.log("unable to connect to the server")
         }
     }

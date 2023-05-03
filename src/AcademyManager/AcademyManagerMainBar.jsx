@@ -1,8 +1,16 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
+
 
 const AcademyManagerMainBar = () => {
   return (
-    <div>AcademyManagerMainBar</div>
+    <>
+    <section>
+      <article>
+          <Outlet/>
+      </article>
+    </section>
+</>
   )
 }
 
