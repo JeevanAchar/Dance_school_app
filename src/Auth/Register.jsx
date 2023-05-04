@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import axiosInstance from '../helper/Axios';
 import { useNavigate, Link } from 'react-router-dom';
 import img from '../assets/free-registration-forms.jpg'
 import STYLE from './Auth.module.css'
@@ -7,6 +6,7 @@ import STYLE from './Auth.module.css'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
+import axiosInstance from './../helper/Axios';
 
 
 
