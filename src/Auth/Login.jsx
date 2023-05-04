@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import STYLE from './Auth.module.css'
-import axiosInstance from '../helpers/Axios'
+import axiosInstance from '../helper/Axios'
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer,toast } from 'react-toastify';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';

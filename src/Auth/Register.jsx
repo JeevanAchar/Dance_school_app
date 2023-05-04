@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import img from '../assets/free-registration-forms.jpg'
 import STYLE from './Auth.module.css'
 // import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import VisibilityIcon from '@mui/icons-material/Visibility';
+// import VisibilityIcon from '@mui/icons-material/Visibility';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import axiosInstance from './../helper/Axios';
@@ -20,9 +20,9 @@ const Register = () => {
         gender: "",
         phone: ""
     })
-    const [pwd, setPwd] = useState(true);
-    const [icon, setIcon] = useState(true);
-    const [iconConfirm, setIconConfimr] = useState(<VisibilityIcon/>)
+    // const [pwd, setPwd] = useState(true);
+    // const [icon, setIcon] = useState(true);
+    // const [iconConfirm, setIconConfimr] = useState(<VisibilityIcon/>)
     let { userName, password, dob, email, gender, phone, confirmPassword } = state;
     let navigate = useNavigate()
 
@@ -46,18 +46,18 @@ const Register = () => {
         console.log({ userName, password, dob, email, gender, phone })
     }
     
-    const showpassword = () => {
-        if (pwd === true) {
-            setPwd(false);
-            setIcon(false);
-            setIconConfimr(false)
-        }
-        else {
-            setPwd(true)
-            setIcon(true);
-            setIconConfimr(true)
-        }
-    }
+    // const showpassword = () => {
+    //     if (pwd === true) {
+    //         setPwd(false);
+    //         setIcon(false);
+    //         setIconConfimr(false)
+    //     }
+    //     else {
+    //         setPwd(true)
+    //         setIcon(true);
+    //         setIconConfimr(true)
+    //     }
+    // }
 
     const handleCancle = () => {
         setState({ state: "" })
