@@ -14,17 +14,20 @@ import AdminRoute from './routes/AdminRoute';
 import ManagerDetails from './AcademyManager/ManagerDetails';
 import EditAcademicManager from './AcademyManager/EditAcademicManager';
 import ViewAcademyDashBoard from './Academy/ViewAcademyDashBoard';
-import BranchDashBoard from './Branch/BranchDashBoard';
+import AcademyDetails from './Academy/AcademyDetails';
+import EditAcademy from './Academy/EditAcademy';
+import BranchDetails from './Branch/BranchDetails';
+import CourseDetails from './course/CourseDetails';
 
 const App = () => {
     return (
         <>
             <Router>
                 <Routes>
-                    <Route path="*" element={"page not found"} />
+                    {/* <Route path="*" element={"page not found"} /> */}
                     <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
                     <Route path='/login' element={<PublicRoute><Login /></PublicRoute>} />
-                    <Route path='login/userRegister' element={<PublicRoute><Register /></PublicRoute>} />
+                    <Route path='login/register' element={<PublicRoute><Register /></PublicRoute>} />
                     <Route path='/Admin' element={<AdminLogin />} />
                     <Route path='/adminRegister' element={<AdminRegister />} />
                     
@@ -34,13 +37,15 @@ const App = () => {
                         <Route path='academyManagerRegister' element={<AdminRoute><AcademyManagerRegister /></AdminRoute>} />
                         <Route path='viewAcademyManager' element={<AdminRoute><ViewAcademicManager /></AdminRoute>} />
                         <Route path='managerDetails/:id' element={<AdminRoute><ManagerDetails/></AdminRoute>} />
-                        <Route path='editAcademyManager/:id' element={<AdminRoute><EditAcademicManager/></AdminRoute>} />
+                        <Route path='managerDetails/update/:id' element={<AdminRoute><EditAcademicManager/></AdminRoute>} />
                         {/* view academy */}
-                        <Route path='viewAcacdemyDashBoard' element={<AdminRoute><ViewAcademyDashBoard/></AdminRoute>} />
+                        <Route path='viewAcademyDashBoard' element={<AdminRoute><ViewAcademyDashBoard/></AdminRoute>} />
+                        <Route path='addAcademy/:id' element={<AdminRoute><EditAcademy/></AdminRoute>} />
+                        <Route path="academyDetails/:id" element={<AdminRoute><AcademyDetails/></AdminRoute>}/>
                         {/* view branch */}
-                        <Route path='viewBranchDashBoard' element={<AdminRoute><BranchDashBoard/></AdminRoute>} />
+                        <Route path='branchDetails' element={<AdminRoute><BranchDetails/></AdminRoute>} />
                         {/* view course */}
-                        <Route path='' />
+                        <Route path='courseDetails' element={<AdminRoute><CourseDetails/></AdminRoute>} />
                     </Route>
                 </Routes>
             </Router>

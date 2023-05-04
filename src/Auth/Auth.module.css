@@ -99,6 +99,10 @@
     background-color: var(--button) ;
     cursor:pointer;
 }
+#blockOneDivFour a{
+    color: black;
+    text-decoration: 2px underline blue;
+}
 
 
 /* register page css */
@@ -257,4 +261,8 @@
     width: 80%;
     font-size: 15px;
     display: block;
+}
+#blockTwoDivTen a{
+    color:  black;
+    text-decoration: 2px underline blue;
 }

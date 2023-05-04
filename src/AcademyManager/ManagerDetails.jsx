@@ -37,9 +37,6 @@ const ManagerDetails = () => {
     await axiosInstance.delete(`/academymanagers/delete/${id}`, { headers: { Authorization: `Bearer ${token}` } })
     navigate("/adminDashBoard/viewAcademyManager")
   }
-  const update = () =>{
-    navigate(`/adminDashBoard/managerDetails/${id}/editAcademyManager`)
-  }
 
   return (
     <>
@@ -55,11 +52,9 @@ const ManagerDetails = () => {
             <p>Gender - {state.gender}</p>
           </div>
           <div id={STYLE.managerDetailsBlockDiv2}>
-          {/* {`/adminDashBoard/editAcademyManager${id}`} */}
-            <button><Link to= {`/adminDashBoard/editAcademyManager${id}`}>update</Link></button>
-            {/* <button onClick={()=>{update(state.id)}}><Link to="">update</Link></button> */}
-            <button>add academy</button>
-            <button onClick={() => { deleteData(state.id)}}>delete</button>
+            <button><Link to={`/adminDashBoard/managerDetails/update/${id}`}>update</Link></button>
+            <button><Link to={`/adminDashBoard/addAcademy/${id}`}>add academy</Link></button>
+            <button onClick={() => { deleteData(state.id) }}>delete</button>
           </div>
         </article>
       </section>

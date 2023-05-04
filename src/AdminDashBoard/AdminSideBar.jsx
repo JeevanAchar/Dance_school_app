@@ -12,9 +12,9 @@ const AdminSideBar = () => {
                             <ul id={STYLE.AdminSideBarBlockUl}>
                                 <li><Link to="/adminDashBoard/academyManagerRegister">Add Academy Manager</Link></li>
                                 <li><Link to="/adminDashBoard/viewAcademyManager">View Academy Manager</Link></li>
-                                <li><Link to="/adminDashBoard/viewAcacdemyDashBoard"> View Academy</Link></li>
-                                <li><Link to="/adminDashBoard/viewBranchDashBoard">View Branch</Link></li>
-                                <li>View Course</li>
+                                <li><Link to="/adminDashBoard/viewAcademyDashBoard"> View Academy</Link></li>
+                                <li><Link to="/adminDashBoard/branchDetails">View Branch</Link></li>
+                                <li><Link to="/adminDashBoard/courseDetails">View Course</Link></li>
                                 <li><Link to="/">Home</Link></li>
                             </ul>
                         </nav>

@@ -12,7 +12,7 @@ const ViewAcademicManager = () => {
       const { data } = await axiosInstance.get("/academymanagers/getall", { headers: { Authorization: `Bearer ${token}` } })
       const finalData = await data.data
       setState(finalData)
-      console.log(finalData);
+      // console.log(finalData);
     }
     fetchData()
   }, [])

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axiosInstance from '../helper/Axios';
 import { useNavigate, Link } from 'react-router-dom';
-import STYLE from '../Auth/Auth.module.css'
+import STYLE from './auth.module.css'
 import img from '../assets/free-registration-forms.jpg'
 
 const AcademyManagerRegister = () => {

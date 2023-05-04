@@ -3,7 +3,9 @@ import React from 'react'
 const BranchDashBoard = () => {
   return (
     <div>
-        <h2>branch</h2>
+        <>
+          jksjd
+        </>
     </div>
   )
 }
