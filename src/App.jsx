@@ -18,14 +18,18 @@ import AcademyDetails from './Academy/AcademyDetails';
 import EditAcademy from './Academy/EditAcademy';
 import BranchDetails from './Branch/BranchDetails';
 import CourseDetails from './course/CourseDetails';
+import EditBranch from './Branch/EditBranch';
+import EditCourse from './course/EditCourse';
+import Events from './pages/Events';
 
 const App = () => {
     return (
         <>
             <Router>
                 <Routes>
-                    {/* <Route path="*" element={"page not found"} /> */}
+                    <Route path="*" element={"page not found"} />
                     <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
+                    <Route path='/events' element={<PrivateRoute><Events/></PrivateRoute>} />
                     <Route path='/login' element={<PublicRoute><Login /></PublicRoute>} />
                     <Route path='login/register' element={<PublicRoute><Register /></PublicRoute>} />
                     <Route path='/Admin' element={<AdminLogin />} />
@@ -44,8 +48,10 @@ const App = () => {
                         <Route path="academyDetails/:id" element={<AdminRoute><AcademyDetails/></AdminRoute>}/>
                         {/* view branch */}
                         <Route path='branchDetails' element={<AdminRoute><BranchDetails/></AdminRoute>} />
+                        <Route path='addBranch/:id' element={<AdminRoute><EditBranch/></AdminRoute>} />
                         {/* view course */}
                         <Route path='courseDetails' element={<AdminRoute><CourseDetails/></AdminRoute>} />
+                        <Route path='addCourse/:id'  element={<AdminRoute><EditCourse/></AdminRoute>} />
                     </Route>
                 </Routes>
             </Router>

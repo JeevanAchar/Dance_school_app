@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-// import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axiosInstance from './../helper/Axios';
 import STYLE from './academy.module.css'
 
 const ViewAcademyDashBoard = () => {
   const [state, setState] = useState([])
-  // const {id} = useParams()
+  const {id} = useParams()
   
   useEffect(()=>{
     const token  = window.localStorage.getItem("token")
@@ -13,7 +13,7 @@ const ViewAcademyDashBoard = () => {
         try{
             const {data} =  await axiosInstance.get(`/academies/getall`, {headers:{Authorization:`Bearer ${token}`}})
             const finalData = data.data
-            console.log(finalData);
+            // console.log(finalData);
             setState(finalData)
         }
         catch(err){
@@ -40,7 +40,7 @@ const ViewAcademyDashBoard = () => {
                       <li>Contact Number - {value.contact}</li>
                       <div>
                         <button>Edit</button>
-                        <button>Add branch</button>
+                        <button><Link to={`/adminDashBoard/addBranch/${value.id}`}>Add branch</Link></button>
                       </div>
                     </ul>
                   </nav>

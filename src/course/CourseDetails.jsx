@@ -7,12 +7,12 @@ const CourseDetails = () => {
 
   useEffect(() => {
     const token = window.localStorage.getItem("token")
-    const fetchData = () => {
+    const fetchData = async () => {
       try {
-        const { data } = axiosInstance.get("/dancecourses/getall", { headers: { Authorization: `Bearer ${token}` } })
+        const { data } = await axiosInstance.get("/dancecourses/getall", { headers: { Authorization: `Bearer ${token}` } })
         const finalData = data.data
         setState(finalData)
-        console.log(finalData);
+        // console.log(finalData);
       }
       catch (err) {
         console.log(err);
@@ -32,13 +32,12 @@ const CourseDetails = () => {
                 <nav>
                   <ul>
                     <li>SL.No - {index + 1}</li>
-                    <li>Academy Name - {value.academyName}</li>
-                    <li>Description -  {value.description}</li>
-                    <li>Email - {value.email}</li>
-                    <li>Contact Number - {value.contact}</li>
+                    <li>courseDurationInMonths - {value.courseDurationInMonths}</li>
+                    <li>fee -  {value.fee}</li>
+                    <li>type - {value.type}</li>
                     <div>
                       <button>Edit</button>
-                      <button>Add branch</button>
+                      <button>Delete</button>
                     </div>
                   </ul>
                 </nav>

@@ -106,7 +106,7 @@ const Login = () => {
                         </div>
                         <div id={STYLE.blockOneDivFour}>
                             <p>Not a member?</p>
-                            <Link to="userRegister">Register</Link>
+                            <Link to="register">Register</Link>
                         </div>
                     </form>
                 </article>

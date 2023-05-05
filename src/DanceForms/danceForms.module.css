@@ -1,42 +1,9 @@
-#HomePageBlock{
-    background-image: url("../assets/wp7245998.webp");
-    /* background-image: url("../assets/DanceBackGround.avif"); */
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-}
-.list{
-    display: flex;
-    justify-content: flex-end;
-    color: white;
-    text-decoration: none;
-    list-style: none;
-    font-size: 25px;
-    font-weight: 400; 
-    margin-bottom: 91vh;
-}
-.list li{ 
-margin-right: 50px;
-font-weight: bolder;
-text-shadow: 10px 0px 20px rgb(255, 0, 0);
-}
-.list li:hover{
-    text-decoration: 2px underline rgb(48, 48, 250);
-}
-.list li a{
-  text-decoration: none;
-  color: white;
-}
-.list{
-    padding: 0px 100px;
-    padding-top: 30px;
-}
 
 #staticmain{
-    /* border-top: 2px solid black; */
+    border-top: 2px solid black;
     width: 100%;
     height: 63vh;
+    /* background-color: red; */
 }
 #staticmain article{
     width: 90%;
@@ -56,6 +23,7 @@ width: 60%;
 }
 #staticdata{
     width: 40%;
+    padding: 10px;
 }
 #staticdata h1{
     font-size: 20px;
@@ -92,4 +60,8 @@ width: 60%;
 }
 #staticdata button:hover {
     background: linear-gradient(#ffb700, #686666);
+}
+#bharathnatyam img {
+    width: 700px;
+    height: 350px ;
 }
