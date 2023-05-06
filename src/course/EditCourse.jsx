@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axiosInstance from '../helper/Axios'
+import STYLE from './course.module.css'
 
 const EditCourse = () => {
   const [state, setState] = useState({
@@ -27,8 +28,9 @@ const EditCourse = () => {
       const { data } = await axiosInstance.post(`/dancecourses/save?branchid=${id}`, payload ,{headers:{Authorization:`Bearer ${token} `}})
       const finalData = data.data
       setState(finalData)
+      alert(`Data Successfully added by ${id}`)
     //   console.log(data);
-      // navigate("/adminDashBoard/branchDetails")
+      navigate("/adminDashBoard/courseDetails")
     }
     catch(err){
       console.log(err)
@@ -37,16 +39,17 @@ const EditCourse = () => {
 
   return (
     <>
-      <section>
+      <section id={STYLE.EditCourseBlock}>
         <article>
+          <h2>ADD COURSE</h2>
           <form action="">
-            <label htmlFor="courseDurationInMonths">courseDurationInMonths</label>
+            <label htmlFor="courseDurationInMonths">COURSEDURATIONINMONTHS - </label>
             <input type="text" id='courseDurationInMonths' name='courseDurationInMonths' value={courseDurationInMonths} onChange={handleChange} />
 
-            <label htmlFor="fee">fee</label>
+            <label htmlFor="fee">FEE - </label>
             <input type="text" id="fee" name='fee' value={fee} onChange={handleChange} minLength="6" maxLength="6" />
 
-            <label htmlFor="type">type</label>
+            <label htmlFor="type">TYPE </label>
             <input type="text" id='type' name='type' value={type} onChange={handleChange} minLength="10" maxLength="10"/>
             
             <button onClick={handleSubmit}>Submit</button>

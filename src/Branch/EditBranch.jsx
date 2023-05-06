@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axiosInstance from '../helper/Axios'
+import STYLE from './branch.module.css'
 
 const EditAcademy = () => {
   const [state, setState] = useState({
@@ -38,23 +39,25 @@ const EditAcademy = () => {
 
   return (
     <>
-      <section>
+      <section id={STYLE.EditBranchBlock}>
         <article>
+          <h2>ADD BRANCH</h2>
           <form action="">
             <label htmlFor="address">address</label>
-            <input type="text" id='address' name='address' value={address} onChange={handleChange} />
+            <input type="text" id='address' name='address' value={address} onChange={handleChange} placeholder='addres' />
 
             <label htmlFor="city">city</label>
-            <input type="text" id="city" name='city' value={city} onChange={handleChange} />
+            <input type="text" id="city" name='city' value={city} onChange={handleChange}  placeholder='city'/>
 
             <label htmlFor="phone">phone</label>
-            <input type="text" id='phone' name='phone' value={phone} onChange={handleChange} minLength="10" maxLength="10"/>
+            <input type="text" id='phone' name='phone' value={phone} onChange={handleChange} minLength="10" maxLength="10" placeholder='phone'/>
 
             <label htmlFor="pincode">pincode</label>
-            <input type="text" id='pincode' name='pincode' value={pincode} onChange={handleChange} minLength="6" maxLength="6" />
+            <input type="text" id='pincode' name='pincode' value={pincode} onChange={handleChange} minLength="6" maxLength="6" placeholder='pin code' />
             
             <button onClick={handleSubmit}>Submit</button>
           </form>
+          
         </article>
       </section>
     </>

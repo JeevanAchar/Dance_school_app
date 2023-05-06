@@ -21,6 +21,8 @@ import CourseDetails from './course/CourseDetails';
 import EditBranch from './Branch/EditBranch';
 import EditCourse from './course/EditCourse';
 import Events from './pages/Events';
+import BranchDashBoard from './Branch/BranchDashBoard';
+import CourseDashBoard from './course/CourseDashBoard';
 
 const App = () => {
     return (
@@ -44,13 +46,16 @@ const App = () => {
                         <Route path='managerDetails/update/:id' element={<AdminRoute><EditAcademicManager/></AdminRoute>} />
                         {/* view academy */}
                         <Route path='viewAcademyDashBoard' element={<AdminRoute><ViewAcademyDashBoard/></AdminRoute>} />
+                        <Route path='academyDetails/update/:id' element={<AdminRoute><AcademyDetails/></AdminRoute>} />
                         <Route path='addAcademy/:id' element={<AdminRoute><EditAcademy/></AdminRoute>} />
                         <Route path="academyDetails/:id" element={<AdminRoute><AcademyDetails/></AdminRoute>}/>
                         {/* view branch */}
                         <Route path='branchDetails' element={<AdminRoute><BranchDetails/></AdminRoute>} />
                         <Route path='addBranch/:id' element={<AdminRoute><EditBranch/></AdminRoute>} />
+                        <Route path='branchDetails/update/:id' element={<AdminRoute><BranchDashBoard/></AdminRoute>} />
                         {/* view course */}
                         <Route path='courseDetails' element={<AdminRoute><CourseDetails/></AdminRoute>} />
+                        <Route path='courseDetails/update/:id' element={<AdminRoute><CourseDashBoard/></AdminRoute>} />
                         <Route path='addCourse/:id'  element={<AdminRoute><EditCourse/></AdminRoute>} />
                     </Route>
                 </Routes>
@@ -58,5 +63,6 @@ const App = () => {
         </>
     )
 }
+
 
 export default App

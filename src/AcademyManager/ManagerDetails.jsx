@@ -23,6 +23,7 @@ const ManagerDetails = () => {
   const { id } = useParams()
 
   useEffect(() => {
+    const token = window.localStorage.getItem("token")
     let fetchData = async () => {
       let { data } = await axiosInstance.get(`/academymanagers/get/${id}`, { headers: { Authorization: `Bearer ${token}` } })
       let finalData = data.data

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import axiosInstance from '../helper/Axios'
 import STYLE from '../Academy/academy.module.css'
+import { Link } from 'react-router-dom'
 
 const CourseDetails = () => {
   const [state, setState] = useState([])
+  const token = window.localStorage.getItem("token")
 
   useEffect(() => {
-    const token = window.localStorage.getItem("token")
     const fetchData = async () => {
       try {
         const { data } = await axiosInstance.get("/dancecourses/getall", { headers: { Authorization: `Bearer ${token}` } })
@@ -21,6 +22,12 @@ const CourseDetails = () => {
     fetchData()
   }, [])
 
+  const deletedData = async(id)=>{
+    await axiosInstance.delete(`/dancecourses/delete/${id}`,{headers:{Authorization:`Bearer ${token}`}})
+    // alert("Data Deleted")
+    window.location.reload()
+
+  }
   return (
     <>
       <section id={STYLE.ViewAcademyDashBoardBlock}>
@@ -36,8 +43,8 @@ const CourseDetails = () => {
                     <li>fee -  {value.fee}</li>
                     <li>type - {value.type}</li>
                     <div>
-                      <button>Edit</button>
-                      <button>Delete</button>
+                      <button><Link to={`/adminDashBoard/courseDetails/update/${value.id}`}>Edit</Link></button>
+                      <button onClick={()=>{deletedData(value.id)}}>Delete</button>
                     </div>
                   </ul>
                 </nav>

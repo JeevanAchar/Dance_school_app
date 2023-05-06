@@ -6,9 +6,9 @@ import { Link, useParams } from 'react-router-dom'
 const BranchDetails = () => {
     const [state, setState] = useState([])
     const {id} = useParams()
+    const token = window.localStorage.getItem("token")
 
     useEffect(() => {
-        const token = window.localStorage.getItem("token")
         const fetchData = async () => {
             try {
                 const { data } = await axiosInstance.get("/branches/getall", { headers: { Authorization: `Bearer ${token}` } })
@@ -22,6 +22,12 @@ const BranchDetails = () => {
         }
         fetchData()
     }, [])
+
+    const deleteData = async (id)=>{
+        console.log(id);
+        await axiosInstance.delete(`/branches/delete/${id}`, { headers: { Authorization: `Bearer ${token}` } })
+        window.location.reload(true)
+    }
 
     return (
         <>
@@ -39,8 +45,9 @@ const BranchDetails = () => {
                                         <li>phone - {value.phone}</li>
                                         <li>pincode - {value.pincode}</li>
                                         <div>
-                                            <button>Edit</button>
+                                            <button><Link to={`/adminDashBoard/branchDetails/update/${value.id}`}>Edit</Link></button>
                                             <button><Link to={`/adminDashBoard/addCourse/${value.id}`}>Add Course</Link></button>
+                                            <button onClick={()=>{deleteData(value.id)}}>delete</button>
                                         </div>
                                     </ul>
                                 </nav>
